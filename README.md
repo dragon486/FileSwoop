@@ -1,101 +1,190 @@
-<p align="center">
-  <img src="./public/images/logo.png" alt="FileSwoop Logo" width="560" />
-</p>
+<div align="center">
+
+<img src="./public/images/logo.png" alt="FileSwoop Logo" width="560" />
 
 # FileSwoop
+### Files, in motion.
 
-FileSwoop is a client-side file transformation platform designed for converting, compressing, resizing, extracting, and enhancing files directly within the browser. All processing is executed locally using modern Web APIs and WebAssembly, ensuring that sensitive documents and media never leave the user's device.
+Convert, compress, resize, extract and enhance your files in one flow. Right in your browser. Nothing is ever uploaded.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdragon486%2FFileSwoop)
-&nbsp;
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-fileflow--virid.vercel.app-0070F3?style=flat&logo=vercel)](https://fileflow-virid.vercel.app)
+[Live demo](https://fileflow-virid.vercel.app/) · [Report a bug](https://github.com/dragon486/FileSwoop/issues) · [Request a feature](https://github.com/dragon486/FileSwoop/issues)
 
-**Live URL**: [https://fileflow-virid.vercel.app](https://fileflow-virid.vercel.app)
+<br/>
+
+[![GitHub stars](https://img.shields.io/github/stars/dragon486/FileSwoop?style=for-the-badge)](https://github.com/dragon486/FileSwoop/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/dragon486/FileSwoop?style=for-the-badge)](https://github.com/dragon486/FileSwoop/network/members)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Privacy](https://img.shields.io/badge/Uploads-0-brightgreen?style=for-the-badge)](https://fileflow-virid.vercel.app/)
+
+<!-- Replace with a 10 to 15 second GIF of the full flow: drop a file, chain steps, download. -->
+<!-- ![FileSwoop demo](docs/demo.gif) -->
+
+</div>
+
+---
+
+## Why FileSwoop?
+
+Most online converters make you upload your contracts, medical records, bank statements and personal photos to someone else's server, then wait in a queue.
+
+FileSwoop has no server in the file pipeline. Everything runs on your device using Web APIs, HTML5 Canvas and WebAssembly.
+
+| Feature | Typical online converter | FileSwoop |
+| :--- | :--- | :--- |
+| **Your file is uploaded to a server** | Yes | **No** |
+| **Waiting for upload, queue and download** | Yes | **No, it starts instantly** |
+| **Works with a poor connection** | No | **Yes, once the page has loaded** |
+| **Several steps (convert, compress, resize)** | Separate tools, repeated uploads | **One flow** |
+
+> **Check it yourself:** Open your browser's DevTools, go to the **Network** tab, and transform a file. You will see no file upload.
+
+---
+
+## The one-flow difference
+
+Other tools make you bounce between pages: convert here, compress there, resize somewhere else, uploading and downloading each time.
+
+FileSwoop does it all in a single flow, in seconds.
+
+```
+Drop a file → Convert to WebP → Compress to under 1 MB → Resize to 1080p → Download (or ZIP)
+```
+
+Chain consecutive transformations, see the exact size saved, and download once. No accounts, no uploads, no repeated trips.
 
 ---
 
 ## Features
 
-- **Format Conversion**: Convert between standard formats including JPG, PNG, WebP, PDF, GIF, and plain-text (TXT).
-- **Intelligent Compression**: Reduce file sizes with targeted thresholds (`< 500 KB`, `< 1 MB`, `< 2 MB`, `< 5 MB`, `Best Quality`) or specify exact quality parameters.
-- **Image Resizing**: Scale dimensions using standard display presets or custom pixel dimensions with aspect-ratio preservation.
-- **Archive Extraction**: Unpack ZIP archives and extract document pages, images, and text streams.
-- **Image Enhancement**: Apply client-side filters including contrast optimization, sharpening, grayscale conversion, and saturation balancing.
-- **Flexible Export**: Single-file downloads, ZIP archive packaging, and immediate file size savings metrics.
-- **Local & Private**: Zero server uploads. Transformations occur in-memory within the client browser session.
+FileSwoop is organised into six stations.
+
+### Convert
+JPG, PNG, WebP, PDF, GIF and TXT. Convert between image and document formats, or pull plain text out of a document.
+
+### Compress
+
+| Preset | Target |
+| :--- | :--- |
+| **Maximum** | under 500 KB |
+| **High** | under 1 MB |
+| **Balanced** | under 2 MB |
+| **Light** | under 5 MB |
+| **Best Quality** | Lossless, strips redundant EXIF and metadata |
+| **Custom** | Quality slider from 10% to 95% |
+
+### Resize
+- **Social**: Avatar 500 × 500, Landscape Post 1200 × 630, Story 1080 × 1920
+- **Displays**: HD 720p, Full HD 1080p, Ultra HD 4K
+- **Custom**: any width and height, with a one-click aspect-ratio lock
+
+### Extract
+- Unpack ZIP archives in memory
+- Pull plain text out of PDFs
+- Split multi-page PDFs into single-page files
+
+### Enhance
+Auto Contrast, Sharpen, Grayscale and Vibrant Saturation (+30%), applied with pixel-level Canvas filters.
+
+### Share and Export
+- Instant local download
+- Bundle results into a single ZIP
+- Size-savings report: original size, new size and percentage saved
+- Workflow chaining across all stations
 
 ---
 
-## Tech Stack
+## Design
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router, Turbopack)
-- **UI & Animation**: [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/)
-- **Processing Engines**:
-  - `pdf-lib` & `pdfjs-dist`: Client-side PDF generation, rendering, and page extraction
-  - `browser-image-compression`: Multi-threaded Canvas and Web Worker compression
-  - `jszip`: In-browser archive extraction and compression
-  - `lucide-react`: UI iconography
+- **Daylight and Midnight themes**: frosted glass in light mode, deep obsidian in dark mode
+- **Floating file object** showing the file's name, format and size
+- **Hold-to-transform dwell timer (2.5 seconds)** that gives you a moment to confirm before an action is applied
+- **Circular progress rings** instead of progress bars
+- **Physics-based animation** with Framer Motion spring transitions
 
 ---
 
-## Getting Started
+## How it works
 
-### Prerequisites
+```mermaid
+flowchart LR
+    A[Your file] --> B[Browser memory]
+    B --> C{Station}
+    C --> D[Canvas / Web Worker<br/>images]
+    C --> E[pdf-lib + pdfjs-dist<br/>PDFs]
+    C --> F[jszip<br/>archives]
+    D --> G[Result + size report]
+    E --> G
+    F --> G
+    G --> H[Download or ZIP]
+```
 
-- Node.js 18.17 or higher
-- npm, pnpm, or yarn
+*No arrow leaves your device.*
 
-### Installation
+---
+
+## Tech stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Framework** | Next.js 16 (App Router, Turbopack) |
+| **Styling** | Tailwind CSS and custom CSS |
+| **Animation** | Framer Motion |
+| **Image compression** | browser-image-compression and Canvas (Web Worker, WebAssembly) |
+| **PDF** | pdf-lib and pdfjs-dist |
+| **Archives** | jszip |
+| **Icons** | lucide-react and a custom origami logo |
+
+---
+
+## Getting started
 
 ```bash
 git clone https://github.com/dragon486/FileSwoop.git
 cd FileSwoop
 npm install
-```
-
-### Development Server
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000/).
 
-### Running Tests
-
-Execute the automated test suite verifying format handlers, resizing calculations, and compression math:
-
-```bash
-npm test
-```
-
-### Production Build
+Build for production:
 
 ```bash
 npm run build
-npm run start
+npm start
 ```
 
 ---
 
-## Deployment
+## Contributing
 
-### Deploy to Vercel
+Contributions are welcome. Good first areas: new output formats, more resize presets, accessibility improvements and translations.
 
-The application is optimized for deployment on Vercel:
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/your-idea`
+3. Commit and push
+4. Open a pull request
 
-1. Import the repository `dragon486/FileSwoop` into your [Vercel Dashboard](https://vercel.com/new).
-2. Framework Preset will be automatically detected as **Next.js**.
-3. Click **Deploy**.
+---
 
-Alternatively, deploy via the Vercel CLI:
+## Support the project
 
-```bash
-npx vercel --prod
-```
+If FileSwoop saved you a trip to a sketchy converter site, please give it a star. It helps other people find a private alternative.
+
+⭐ **[Star on GitHub](https://github.com/dragon486/FileSwoop)**
 
 ---
 
 ## License
 
-This project is licensed under the MIT License.
+Distributed under the [MIT License](LICENSE). See [LICENSE](LICENSE) for more details.
+
+---
+
+<div align="center">
+
+Built by [@dragon486](https://github.com/dragon486)
+
+**FileSwoop. Files, in motion.**
+
+</div>
