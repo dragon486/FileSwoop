@@ -7,6 +7,10 @@
 FileSwoop is a client-side file transformation platform designed for converting, compressing, resizing, extracting, and enhancing files directly within the browser. All processing is executed locally using modern Web APIs and WebAssembly, ensuring that sensitive documents and media never leave the user's device.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdragon486%2FFileSwoop)
+&nbsp;
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-fileflow--virid.vercel.app-0070F3?style=flat&logo=vercel)](https://fileflow-virid.vercel.app)
+
+**Live URL**: [https://fileflow-virid.vercel.app](https://fileflow-virid.vercel.app)
 
 ---
 
