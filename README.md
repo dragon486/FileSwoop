@@ -1,8 +1,10 @@
 # FileSwoop — Files, in motion.
 
-A high-performance, private file transformation platform built with Next.js, Framer Motion, and Tailwind CSS. All file operations execute 100% locally and privately within the client browser.
+<p align="center">
+  <img src="./public/images/logo.png" alt="FileSwoop Logo" width="560" />
+</p>
 
-![FileSwoop Preview](/public/images/logo_light.png)
+A high-performance, private file transformation platform built with Next.js, Framer Motion, and Tailwind CSS. All file operations execute 100% locally and privately within the client browser.
 
 ## Highlights
 
