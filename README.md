@@ -7,14 +7,14 @@
 
 Convert, compress, resize, extract and enhance your files in one flow, in seconds. Right in your browser, with nothing uploaded.
 
-[Live demo](https://fileflow-virid.vercel.app/) · [Report a bug](https://github.com/dragon486/FileSwoop/issues) · [Request a feature](https://github.com/dragon486/FileSwoop/issues)
+[Live demo](https://fileswoop.vercel.app/) · [Report a bug](https://github.com/dragon486/FileSwoop/issues) · [Request a feature](https://github.com/dragon486/FileSwoop/issues)
 
 <br/>
 
 [![GitHub stars](https://img.shields.io/github/stars/dragon486/FileSwoop?style=for-the-badge)](https://github.com/dragon486/FileSwoop/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/dragon486/FileSwoop?style=for-the-badge)](https://github.com/dragon486/FileSwoop/network/members)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Privacy](https://img.shields.io/badge/Uploads-0-brightgreen?style=for-the-badge)](https://fileflow-virid.vercel.app/)
+[![Privacy](https://img.shields.io/badge/Uploads-0-brightgreen?style=for-the-badge)](https://fileswoop.vercel.app/)
 
 <br/><br/>
 
