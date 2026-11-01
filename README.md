@@ -5,7 +5,7 @@
 # FileSwoop
 ### Files, in motion.
 
-Convert, compress, resize, extract and enhance your files in one flow. Right in your browser. Nothing is ever uploaded.
+Convert, compress, resize, extract and enhance your files in one flow, in seconds. Right in your browser, with nothing uploaded.
 
 [Live demo](https://fileflow-virid.vercel.app/) · [Report a bug](https://github.com/dragon486/FileSwoop/issues) · [Request a feature](https://github.com/dragon486/FileSwoop/issues)
 
@@ -16,18 +16,33 @@ Convert, compress, resize, extract and enhance your files in one flow. Right in 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Privacy](https://img.shields.io/badge/Uploads-0-brightgreen?style=for-the-badge)](https://fileflow-virid.vercel.app/)
 
-<!-- Replace with a 10 to 15 second GIF of the full flow: drop a file, chain steps, download. -->
-<!-- ![FileSwoop demo](docs/demo.gif) -->
+<br/><br/>
+
+<img src="./public/images/dashboard_home.png" alt="FileSwoop Dashboard Preview" width="100%" style="border-radius: 14px; box-shadow: 0 16px 40px rgba(0,0,0,0.3);" />
 
 </div>
 
 ---
 
-## Why FileSwoop?
+## One flow. A few seconds.
+
+Other tools make you bounce between pages: convert here, compress there, resize somewhere else, uploading and downloading each time.
+
+FileSwoop does it all in a single flow, in seconds. This is what FileSwoop is built around.
+
+```
+Drop a file → Convert to WebP → Compress to under 1 MB → Resize to 1080p → Download (or ZIP)
+```
+
+Chain consecutive transformations, see the exact size saved, and download once. No accounts, no uploads, no repeated trips.
+
+---
+
+## And it stays private
 
 Most online converters make you upload your contracts, medical records, bank statements and personal photos to someone else's server, then wait in a queue.
 
-FileSwoop has no server in the file pipeline. Everything runs on your device using Web APIs, HTML5 Canvas and WebAssembly.
+FileSwoop has no server processing your files. Everything runs on your device using Web APIs, HTML5 Canvas and WebAssembly.
 
 | Feature | Typical online converter | FileSwoop |
 | :--- | :--- | :--- |
@@ -37,20 +52,6 @@ FileSwoop has no server in the file pipeline. Everything runs on your device usi
 | **Several steps (convert, compress, resize)** | Separate tools, repeated uploads | **One flow** |
 
 > **Check it yourself:** Open your browser's DevTools, go to the **Network** tab, and transform a file. You will see no file upload.
-
----
-
-## The one-flow difference
-
-Other tools make you bounce between pages: convert here, compress there, resize somewhere else, uploading and downloading each time.
-
-FileSwoop does it all in a single flow, in seconds.
-
-```
-Drop a file → Convert to WebP → Compress to under 1 MB → Resize to 1080p → Download (or ZIP)
-```
-
-Chain consecutive transformations, see the exact size saved, and download once. No accounts, no uploads, no repeated trips.
 
 ---
 
@@ -71,6 +72,12 @@ JPG, PNG, WebP, PDF, GIF and TXT. Convert between image and document formats, or
 | **Light** | under 5 MB |
 | **Best Quality** | Lossless, strips redundant EXIF and metadata |
 | **Custom** | Quality slider from 10% to 95% |
+
+<br/>
+
+<img src="./public/images/dashboard_compress.png" alt="FileSwoop Compress Station Preview" width="100%" style="border-radius: 14px; box-shadow: 0 16px 40px rgba(0,0,0,0.3);" />
+
+<br/>
 
 ### Resize
 - **Social**: Avatar 500 × 500, Landscape Post 1200 × 630, Story 1080 × 1920

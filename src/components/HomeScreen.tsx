@@ -84,19 +84,19 @@ export function HomeScreen({
       />
 
       {/* Typography on Pixel Backdrop */}
-      <div className="mb-4 sm:mb-5">
-        <h1 className="text-2xl sm:text-4xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
+      <div className="mb-3 sm:mb-5">
+        <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
           {currentFile ? 'File ready! Select or drop onto a tool.' : 'Drop a file onto a tool to get started.'}
         </h1>
-        <p className="text-xs sm:text-sm text-white/90 mt-1.5 font-normal max-w-lg mx-auto drop-shadow-xs">
+        <p className="text-[11px] sm:text-sm text-white/90 mt-1 sm:mt-1.5 font-normal max-w-lg mx-auto drop-shadow-xs px-2">
           {currentFile
             ? 'Drag the hovering file onto a destination below or click a tool to get started.'
             : 'Fast, completely private file transformations directly inside your browser.'}
         </p>
       </div>
 
-      {/* Six Large Apple-style Destinations Floating on Pixel Art */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 w-full">
+      {/* Six Large Destinations Floating on Pixel Art */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 w-full">
         {STATION_CONFIGS.map((station) => (
           <HoldTarget
             key={station.id}
@@ -105,7 +105,7 @@ export function HomeScreen({
             holdLabel="Opening..."
             onTrigger={(file) => handleStationTrigger(station.id, file)}
             onHoverSnap={onHoverSnap}
-            className={`h-full p-4 sm:p-5 rounded-[18px] backdrop-blur-xl transition-all flex flex-col items-center text-center group active:scale-[0.99] ${
+            className={`h-full p-2.5 sm:p-5 rounded-[14px] sm:rounded-[18px] backdrop-blur-xl transition-all flex flex-col items-center text-center group active:scale-[0.99] ${
               isDark
                 ? 'bg-[#15171F]/90 text-white border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.65)] hover:bg-[#1E222D]/95 hover:shadow-[0_20px_45px_rgba(0,0,0,0.8)]'
                 : 'bg-white/95 text-[#1D1D1F] border border-white/80 shadow-[0_12px_36px_rgba(0,0,0,0.16)] hover:bg-white hover:shadow-[0_18px_44px_rgba(0,0,0,0.22)]'
@@ -115,14 +115,14 @@ export function HomeScreen({
             }`}
           >
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-108 mb-2.5 shadow-2xs"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-108 mb-1 sm:mb-2.5 shadow-2xs"
               style={{ backgroundColor: `${station.color}15` }}
             >
               {getStationIcon(station.id)}
             </div>
 
             <h3
-              className={`text-base font-semibold tracking-tight transition-colors ${
+              className={`text-xs sm:text-base font-semibold tracking-tight transition-colors ${
                 isDark ? 'text-white group-hover:text-[#3898FF]' : 'text-[#1D1D1F] group-hover:text-[#0071E3]'
               }`}
             >
@@ -130,7 +130,7 @@ export function HomeScreen({
             </h3>
 
             <p
-              className={`text-[11px] mt-1 line-clamp-1 leading-relaxed ${
+              className={`text-[9.5px] sm:text-[11px] mt-0.5 sm:mt-1 line-clamp-2 leading-tight ${
                 isDark ? 'text-[#A1A1A6]' : 'text-[#6E6E73]'
               }`}
             >
@@ -138,7 +138,7 @@ export function HomeScreen({
             </p>
 
             <div
-              className={`mt-3.5 pt-2 border-t w-full flex items-center justify-center text-[10px] font-medium transition-colors ${
+              className={`mt-2 sm:mt-3.5 pt-1.5 sm:pt-2 border-t w-full flex items-center justify-center text-[9px] sm:text-[10px] font-medium transition-colors ${
                 isDark
                   ? 'border-white/[0.08] text-[#A1A1A6] group-hover:text-[#3898FF]'
                   : 'border-black/[0.06] text-[#6E6E73] group-hover:text-[#0071E3]'

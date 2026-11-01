@@ -328,7 +328,7 @@ export default function FlowFilePage() {
 
   return (
     <div
-      className={`h-screen max-h-screen w-screen overflow-hidden flex flex-col transition-colors duration-300 selection:bg-[#0071E3]/20 ${
+      className={`min-h-[100dvh] sm:h-screen sm:max-h-screen w-full overflow-x-hidden flex flex-col transition-colors duration-300 selection:bg-[#0071E3]/20 ${
         theme === 'dark' ? 'dark bg-[#0B0C10] text-white' : 'bg-[#F5F5F7] text-[#1D1D1F]'
       }`}
     >
@@ -342,17 +342,17 @@ export default function FlowFilePage() {
 
       {/* Apple-style Top Navigation Header */}
       <header
-        className={`h-14 shrink-0 flex items-center justify-between px-6 sm:px-10 backdrop-blur-xl border-b transition-colors duration-300 z-30 ${
+        className={`h-14 shrink-0 flex items-center justify-between px-3.5 sm:px-10 backdrop-blur-xl border-b transition-colors duration-300 z-30 sticky top-0 ${
           theme === 'light'
             ? 'bg-[#F5F5F7]/85 border-black/[0.06] text-[#1D1D1F]'
             : 'bg-[#0B0C10]/85 border-white/[0.08] text-white'
         }`}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <img
             src={theme === 'light' ? '/images/logo_light.png' : '/images/logo_dark.png'}
             alt="FileSwoop"
-            className="h-7 sm:h-8 w-auto object-contain select-none"
+            className="h-6 sm:h-8 w-auto object-contain select-none"
           />
           <span
             className={`text-xs font-normal hidden sm:inline border-l pl-3 transition-colors ${
@@ -364,11 +364,11 @@ export default function FlowFilePage() {
         </div>
 
         {/* Right Actions: Theme Toggle & Reset */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
           {/* Day / Night Theme Toggle */}
           <button
             onClick={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all border shadow-2xs cursor-pointer ${
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all border shadow-2xs cursor-pointer ${
               theme === 'light'
                 ? 'bg-white hover:bg-neutral-100 text-[#1D1D1F] border-black/[0.08]'
                 : 'bg-white/10 hover:bg-white/15 text-white border-white/15'
@@ -378,12 +378,12 @@ export default function FlowFilePage() {
             {theme === 'light' ? (
               <>
                 <Sun className="w-3.5 h-3.5 text-amber-500" strokeWidth={2} />
-                <span>Daylight</span>
+                <span className="hidden xs:inline">Daylight</span>
               </>
             ) : (
               <>
                 <Moon className="w-3.5 h-3.5 text-indigo-400" strokeWidth={2} />
-                <span>Night Sky</span>
+                <span className="hidden xs:inline">Night Sky</span>
               </>
             )}
           </button>
@@ -391,7 +391,7 @@ export default function FlowFilePage() {
           {state.currentFile && (
             <button
               onClick={handleResetFlow}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors border shadow-2xs cursor-pointer ${
+              className={`flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors border shadow-2xs cursor-pointer ${
                 theme === 'light'
                   ? 'bg-white hover:bg-neutral-100 text-[#1D1D1F] border-black/[0.08]'
                   : 'bg-white/10 hover:bg-white/15 text-white border-white/15'
@@ -406,14 +406,14 @@ export default function FlowFilePage() {
       </header>
 
       {/* Main Single-Decision Screen Viewport with Big Pixel Art Background Card */}
-      <main className="flex-1 min-h-0 w-full flex items-center justify-center p-3 sm:p-5 overflow-hidden">
+      <main className="flex-1 min-h-0 w-full flex items-center justify-center p-2 sm:p-5 overflow-y-auto sm:overflow-hidden">
         <div
           onDragOver={(e) => {
             e.preventDefault();
             if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
           }}
           onDrop={handleContainerDrop}
-          className={`relative rounded-3xl overflow-hidden shadow-2xl w-[96%] max-w-[1360px] 2xl:max-w-[1480px] h-full max-h-[86vh] p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center transition-all duration-300 ${
+          className={`relative rounded-2xl sm:rounded-3xl shadow-2xl w-full sm:w-[96%] max-w-[1360px] 2xl:max-w-[1480px] h-full max-h-none sm:max-h-[86vh] p-3 sm:p-6 md:p-8 flex flex-col items-center justify-start sm:justify-center overflow-y-auto overflow-x-hidden transition-all duration-300 ${
             theme === 'light'
               ? 'border border-black/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
               : 'border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.6)]'
@@ -446,7 +446,7 @@ export default function FlowFilePage() {
           />
 
           {/* 3. Floating Content Layer */}
-          <div className="relative z-10 w-full flex flex-col items-center">
+          <div className="relative z-10 w-full flex flex-col items-center my-auto">
             {/* Active File Object Hovering on Top */}
             <AnimatePresence>
               {state.currentFile && (

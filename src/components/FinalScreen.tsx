@@ -171,10 +171,10 @@ export function FinalScreen({
       </div>
 
       {/* Secondary Actions */}
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto">
         <button
           onClick={onContinueTransforming}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-black/[0.08] dark:border-white/15 bg-white dark:bg-[#15171E] text-xs font-semibold text-[#1D1D1F] dark:text-white hover:border-black/[0.15] dark:hover:border-white/25 hover:bg-neutral-50 dark:hover:bg-[#1C1F28] transition-colors shadow-2xs cursor-pointer"
+          className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/15 bg-white dark:bg-[#15171E] text-xs font-semibold text-[#1D1D1F] dark:text-white hover:border-black/[0.15] dark:hover:border-white/25 hover:bg-neutral-50 dark:hover:bg-[#1C1F28] transition-colors shadow-2xs cursor-pointer w-full sm:w-auto"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#0071E3] dark:text-[#3898FF]" strokeWidth={1.8} />
           <span>Apply Another Operation</span>
@@ -182,7 +182,7 @@ export function FinalScreen({
 
         <button
           onClick={onNewFlow}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-black/[0.08] dark:border-white/15 bg-white dark:bg-[#15171E] text-xs font-semibold text-[#1D1D1F] dark:text-white hover:border-black/[0.15] dark:hover:border-white/25 hover:bg-neutral-50 dark:hover:bg-[#1C1F28] transition-colors shadow-2xs cursor-pointer"
+          className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/15 bg-white dark:bg-[#15171E] text-xs font-semibold text-[#1D1D1F] dark:text-white hover:border-black/[0.15] dark:hover:border-white/25 hover:bg-neutral-50 dark:hover:bg-[#1C1F28] transition-colors shadow-2xs cursor-pointer w-full sm:w-auto"
         >
           <RotateCcw className="w-3.5 h-3.5 text-[#86868B] dark:text-neutral-400" strokeWidth={1.8} />
           <span>Transform Another File</span>

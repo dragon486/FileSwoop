@@ -72,15 +72,15 @@ export function CompressScreen({
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-4xl flex flex-col items-center"
     >
-      <div className="w-full flex items-center justify-between mb-4">
+      <div className="w-full flex items-center justify-between mb-3 sm:mb-4">
         <BackZone onBack={onBack} label="Back to Tools" disabled={isProcessing} />
       </div>
 
-      <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
+      <div className="text-center mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-3xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
           How small should your file be?
         </h2>
-        <p className="text-xs sm:text-sm text-white/85 mt-1.5 font-normal drop-shadow-xs">
+        <p className="text-[11px] sm:text-sm text-white/85 mt-1 sm:mt-1.5 font-normal drop-shadow-xs px-2">
           {currentFile
             ? 'Drop or hold your file over a target to optimize file size.'
             : 'Drop your file onto a compression target to optimize instantly.'}
@@ -88,7 +88,7 @@ export function CompressScreen({
       </div>
 
       {isProcessing && (
-        <div className="w-full max-w-xs px-4 py-3 mb-5 bg-white/95 dark:bg-[#15171F]/95 backdrop-blur-xl border border-[#5856D6]/30 rounded-2xl flex items-center justify-center gap-3 shadow-lg">
+        <div className="w-full max-w-xs px-3.5 py-2.5 sm:px-4 sm:py-3 mb-4 sm:mb-5 bg-white/95 dark:bg-[#15171F]/95 backdrop-blur-xl border border-[#5856D6]/30 rounded-2xl flex items-center justify-center gap-3 shadow-lg">
           <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
             <svg className="w-8 h-8 -rotate-90">
               <circle
@@ -127,7 +127,7 @@ export function CompressScreen({
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 w-full">
         {COMPRESS_OPTIONS.map((opt) => {
           const est = currentFile ? estimateCompressedSize(currentFile.size, opt.id) : null;
 
@@ -140,7 +140,7 @@ export function CompressScreen({
               onTrigger={(file) => onCompress(opt.id, undefined, file)}
               onHoverSnap={onHoverSnap}
               disabled={isProcessing}
-              className={`p-4 sm:p-5 rounded-[18px] backdrop-blur-xl transition-all flex flex-col justify-between min-h-[125px] group active:scale-[0.99] ${
+              className={`p-3.5 sm:p-5 rounded-[16px] sm:rounded-[18px] backdrop-blur-xl transition-all flex flex-col justify-between min-h-[115px] sm:min-h-[125px] group active:scale-[0.99] ${
                 isDark
                   ? 'bg-[#15171F]/90 text-white border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.65)] hover:bg-[#1C1F28]/95 hover:shadow-[0_20px_45px_rgba(0,0,0,0.8)]'
                   : 'bg-white/95 text-[#1D1D1F] border border-white/80 shadow-[0_12px_36px_rgba(0,0,0,0.16)] hover:bg-white hover:shadow-[0_18px_44px_rgba(0,0,0,0.22)]'

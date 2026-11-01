@@ -44,15 +44,15 @@ export function ConvertScreen({
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-4xl flex flex-col items-center"
     >
-      <div className="w-full flex items-center justify-between mb-4">
+      <div className="w-full flex items-center justify-between mb-3 sm:mb-4">
         <BackZone onBack={onBack} label="Back to Tools" disabled={isProcessing} />
       </div>
 
-      <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
+      <div className="text-center mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-3xl font-semibold tracking-[-0.025em] text-white drop-shadow-md">
           What format do you need?
         </h2>
-        <p className="text-xs sm:text-sm text-white/85 mt-1.5 font-normal drop-shadow-xs">
+        <p className="text-[11px] sm:text-sm text-white/85 mt-1 sm:mt-1.5 font-normal drop-shadow-xs px-2">
           {currentFile
             ? 'Drop or hold your file over a target format to convert in seconds.'
             : 'Drop your file directly onto a target format to convert instantly.'}
@@ -60,7 +60,7 @@ export function ConvertScreen({
       </div>
 
       {isProcessing && (
-        <div className="w-full max-w-xs px-4 py-3 mb-5 bg-white/95 dark:bg-[#15171F]/95 backdrop-blur-xl border border-[#0071E3]/30 rounded-2xl flex items-center justify-center gap-3 shadow-lg">
+        <div className="w-full max-w-xs px-3.5 py-2.5 sm:px-4 sm:py-3 mb-4 sm:mb-5 bg-white/95 dark:bg-[#15171F]/95 backdrop-blur-xl border border-[#0071E3]/30 rounded-2xl flex items-center justify-center gap-3 shadow-lg">
           <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
             <svg className="w-8 h-8 -rotate-90">
               <circle
@@ -99,7 +99,7 @@ export function ConvertScreen({
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 w-full">
         {FORMAT_OPTIONS.map((fmt) => {
           const isCurrentFormat = currentFile
             ? currentFile.name.toLowerCase().endsWith(`.${fmt.id.toLowerCase()}`)
@@ -115,7 +115,7 @@ export function ConvertScreen({
               onTrigger={(file) => onConvert(fmt.id, file)}
               onHoverSnap={onHoverSnap}
               disabled={isProcessing || isCurrentFormat}
-              className={`p-4 sm:p-5 rounded-[18px] backdrop-blur-xl transition-all flex flex-col justify-between min-h-[125px] group ${
+              className={`p-3 sm:p-5 rounded-[16px] sm:rounded-[18px] backdrop-blur-xl transition-all flex flex-col justify-between min-h-[110px] sm:min-h-[125px] group ${
                 isCurrentFormat
                   ? isDark
                     ? 'border-white/[0.04] bg-white/[0.04] opacity-50 cursor-not-allowed'
